@@ -25,7 +25,7 @@ with open(data_folder + 'driving_main_log.csv') as csv_file:
 images = []
 angles = []
 
-print('Loading images... please wait')
+print('Loading', len(lines),  'images... please wait')
 for line in lines:
     angle_center = float(line[3])
     angle_left = angle_center + angle_correction
@@ -58,7 +58,7 @@ model.add(Dense(1))
 print('DriverNet created successfully')
 
 model.compile(loss='mse', optimizer='adam')
-model.fit(X_train, y_train, validation_split=0.2, shuffle=True, epochs=4, verbose=0)
+model.fit(X_train, y_train, validation_split=0.2, shuffle=True, epochs=4)
 
 # Save the model
 model.save('model.h5')
