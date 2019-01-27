@@ -77,7 +77,7 @@ model.add(Dense(10))
 model.add(Dense(1))
 print('DriverNet created successfully')
 
-model.compile(loss='mse', optimizer=Adam(0.00001))
+model.compile(loss='mse', optimizer=Adam(0.0001))
 
 # create the generators
 train_generator = generator(train_images, train_angles, batch_size=64)
