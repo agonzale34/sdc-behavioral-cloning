@@ -58,11 +58,7 @@ for i in range(0, len(lines), 1):
     images.append(image_right)
     # data augmentation
     images.append(np.fliplr(image_center))
-    # images.append(np.fliplr(image_left))
-    # images.append(np.fliplr(image_right))
     angles.append(-angle_center)
-    # angles.append(-angle_left)
-    # angles.append(-angle_right)
 
 # creating the dataset for training the model
 X_train = np.array(images)
@@ -70,7 +66,7 @@ y_train = np.array(angles)
 print('Dataset loaded successfully -> features:', len(angles))
 
 model.compile(loss='mse', optimizer=Adam(0.0001))
-history_object = model.fit(X_train, y_train, validation_split=0.2, shuffle=True, epochs=15)
+history_object = model.fit(X_train, y_train, validation_split=0.2, shuffle=True, epochs=12)
 
 # Save the model
 model.save('model.h5')
